@@ -8,6 +8,7 @@ class LoginPage {
         this.passwordInput = page.getByTestId("password");
         this.loginButton = page.getByTestId("login-submit");
         this.loginError = page.getByTestId("login-error");
+        this.loginForm = page.getByTestId("login-form");
     }
 
     // ---------- Actions ----------
@@ -31,15 +32,16 @@ class LoginPage {
         await this.fillEmail(email);
         await this.fillPassword(password);
         await this.clickLoginButton();
-    }   
+    }
 
     async clickRegisterLink() {
         await this.registerLink.click();
     }
 
     // ---------- Assertions ----------
-    async expectLoginPageOpened(ExpectedLoginHeading) {
-        await expect(this.page.getByRole("heading", { name: ExpectedLoginHeading })).toBeVisible();
+    async expectLoginPageOpened(loginUrl) {
+        await expect(this.page).toHaveURL(new RegExp(loginUrl));
+        await expect(this.loginForm).toBeVisible();
     }
 
     async expectRegisterLinkVisible() {

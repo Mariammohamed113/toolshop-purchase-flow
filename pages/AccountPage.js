@@ -16,13 +16,13 @@ class AccountPage {
     }
 
     // ---------- Assertions ----------
-    async expectAccountPageOpened(title) {
-        await expect(this.page).toHaveURL(/\/account$/);
+    async expectAccountPageOpened(accountUrl, title) {
+        await expect(this.page).toHaveURL(new RegExp(accountUrl + "$"));
         await expect(this.pageTitle).toHaveText(title);
     }
-    
 
- 
+
+
 }
 
 module.exports = { AccountPage };
