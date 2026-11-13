@@ -1,0 +1,19 @@
+{
+  "accountTitle": "My account",
+  "emailPrefix": "mariam.test",
+  "emailDomain": "@toolshop-test.com",
+  "user": {
+    "firstName": "Mariam",
+    "lastName": "Tester",
+    "fullName": "Mariam Tester",
+    "dob": "1998-05-15",
+    "country": "Egypt",
+    "postalCode": "11511",
+    "houseNumber": "12",
+    "street": "Tahrir Street",
+    "city": "Cairo",
+    "state": "Cairo",
+    "phone": "01012345678",
+    "password": "Toolshop#Trainee2026!"
+  }
+}

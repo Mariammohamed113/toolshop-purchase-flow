@@ -1,0 +1,11 @@
+{
+  "user": {
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "welcome01"
+  },
+  "searchTerm": "Thor Hammer",
+  "productName": "Thor Hammer",
+  "quantity": 1,
+  "addedToCartMessage": "Product added to shopping cart.",
+  "expectedCartLines": 1
+}

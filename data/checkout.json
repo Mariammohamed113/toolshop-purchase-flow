@@ -1,0 +1,28 @@
+{
+  "user": {
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "welcome01",
+    "fullName": "Jane Doe"
+  },
+  "searchTerm": "Thor Hammer",
+  "productName": "Thor Hammer",
+  "quantity": 1,
+  "addedToCartMessage": "Product added to shopping cart.",
+  "alreadyLoggedInMessage": "Hello Jane Doe, you are already logged in. You can proceed to checkout.",
+  "billingAddress": {
+    "prefilled": {
+      "street": "Test street 98",
+      "city": "Vienna",
+      "country": "Austria"
+    },
+    "toFill": {
+      "state": "Vienna",
+      "postalCode": "1010",
+      "houseNumber": "98"
+    }
+  },
+  "paymentMethod": "Cash on Delivery",
+  "paymentSuccessMessage": "Payment was successful",
+  "orderConfirmationText": "Thanks for your order! Your invoice number is",
+  "invoicesTitle": "Invoices"
+}

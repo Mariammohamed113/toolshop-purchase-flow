@@ -1,0 +1,10 @@
+{
+  "user": {
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "welcome01"
+  },
+  "searchTerm": "Thor Hammer",
+  "searchCaption": "Searched for: Thor Hammer",
+  "expectedResultCount": 1,
+  "productName": "Thor Hammer"
+}

@@ -9,11 +9,12 @@ class LoginPage {
         this.loginButton = page.getByTestId("login-submit");
         this.loginError = page.getByTestId("login-error");
         this.loginForm = page.getByTestId("login-form");
+        this.url = "/auth/login";
     }
 
     // ---------- Actions ----------
-    async open(loginUrl) {
-        await this.page.goto(loginUrl);
+    async open() {
+        await this.page.goto(this.url);
     }
 
     async fillEmail(email) {
@@ -39,8 +40,8 @@ class LoginPage {
     }
 
     // ---------- Assertions ----------
-    async expectLoginPageOpened(loginUrl) {
-        await expect(this.page).toHaveURL(new RegExp(loginUrl));
+    async expectLoginPageOpened() {
+        await expect(this.page).toHaveURL(new RegExp(this.url));
         await expect(this.loginForm).toBeVisible();
     }
 
