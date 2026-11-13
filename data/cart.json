@@ -3,7 +3,9 @@
     "email": "customer@practicesoftwaretesting.com",
     "password": "welcome01"
   },
+  "accountTitle": "My account",
   "searchTerm": "Thor Hammer",
+  "expectedResultCount": 1,
   "productName": "Thor Hammer",
   "quantity": 1,
   "addedToCartMessage": "Product added to shopping cart.",

@@ -8,6 +8,7 @@ class HomePage {
         this.searchTerm = page.getByTestId("search-term");
         this.searchCaption = page.getByTestId("search-caption");
         this.productNames = page.getByTestId("product-name");
+        this.productPrices = page.getByTestId("product-price");
     }
 
     // ---------- Actions ----------
@@ -26,6 +27,10 @@ class HomePage {
 
     async clickProduct(productName) {
         await this.productNames.filter({ hasText: productName }).click();
+    }
+
+    async getProductPrice() {
+        return (await this.productPrices.textContent()).replace("$", "");
     }
 
     // ---------- Assertions ----------   

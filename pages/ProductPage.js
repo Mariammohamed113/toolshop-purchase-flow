@@ -4,8 +4,10 @@ class ProductPage {
 
     constructor(page) {
         this.page = page;
-        this.addToFavoritesButton = page.getByTestId("add-to-favorites");
         this.productName = page.getByTestId("product-name");
+        this.addToCartButton = page.getByTestId("add-to-cart");
+        this.unitPrice = page.getByTestId("unit-price");
+        this.toastMessage = page.locator(".toast-success");
     }
 
     // ---------- Actions ----------
@@ -13,22 +15,24 @@ class ProductPage {
         await this.page.goto(productUrl);
     }
 
-    async clickAddToFavoritesButton() {
-        await this.addToFavoritesButton.click();
+    async clickAddToCart() {
+        await this.addToCartButton.click();
     }
+
 
     // ---------- Assertions ----------
     async expectProductPageOpened(expectedProductName) {
         await expect(this.productName).toContainText(expectedProductName);
     }
 
-    async expectAddToFavoritesButtonVisible() {
-        await expect(this.addToFavoritesButton).toBeVisible();
+    async expectUnitPrice(price) {
+        await expect(this.unitPrice).toHaveText(price);
     }
 
-    async expectAddedToFavoritesMessage(expectedMessage) {
-        await expect(this.page.locator(".toast-success")).toContainText(expectedMessage);   
+    async expectToastMessage(message) {
+        await expect(this.toastMessage).toHaveText(message);
     }
+
 
 }
 module.exports = { ProductPage };
