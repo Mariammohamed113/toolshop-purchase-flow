@@ -1,8 +1,9 @@
 {
   "user": {
-    "email": "customer@practicesoftwaretesting.com",
-    "password": "welcome01"
+    "email": "mariam.toolshop.test@gmail.com",
+    "password": "Toolshop#Mariam2026"
   },
+  "accountTitle": "My account",
   "searchTerm": "Thor Hammer",
   "searchCaption": "Searched for: Thor Hammer",
   "expectedResultCount": 1,
