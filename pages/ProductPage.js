@@ -11,10 +11,6 @@ class ProductPage {
     }
 
     // ---------- Actions ----------
-    async open(productUrl) {
-        await this.page.goto(productUrl);
-    }
-
     async clickAddToCart() {
         await this.addToCartButton.click();
     }

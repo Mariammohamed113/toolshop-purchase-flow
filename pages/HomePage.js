@@ -34,8 +34,8 @@ class HomePage {
     }
 
     // ---------- Assertions ----------   
-    async expectPageTitle(ExpectedTitle) {
-        await expect(this.page).toHaveTitle(ExpectedTitle);
+    async expectPageTitle(expectedTitle) {
+        await expect(this.page).toHaveTitle(expectedTitle);
     }
 
     async expectSearchInputVisible() {
