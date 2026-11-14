@@ -1,8 +1,19 @@
 {
-  "accountTitle": "My account",
+  "emailPrefix": "mariam.login",
+  "emailDomain": "@toolshop-test.com",
   "user": {
-    "email": "customer@practicesoftwaretesting.com",
-    "password": "welcome01",
-    "fullName": "Jane Doe"
-  }
+    "firstName": "Mariam",
+    "lastName": "Tester",
+    "fullName": "Mariam Tester",
+    "dob": "1998-05-15",
+    "country": "EG",
+    "postalCode": "11220",
+    "houseNumber": "55",
+    "street": "Wintheiser Hollow",
+    "city": "Moentown",
+    "state": "Illinois",
+    "phone": "01012345678",
+    "password": "Toolshop#Trainee2026!"
+  },
+  "accountTitle": "My account"
 }

@@ -1,22 +1,29 @@
 const { test } = require("@playwright/test");
 const { LoginPage } = require("../../pages/LoginPage");
+const { RegisterPage } = require("../../pages/RegisterPage");
 const { AccountPage } = require("../../pages/AccountPage");
 const { HomePage } = require("../../pages/HomePage");
 const data = require("../../data/search.json");
 
 test.describe("Search", () => {
     let loginPage;
+    let registerPage;
     let accountPage;
     let homePage;
 
     test.beforeEach(async ({ page }) => {
         loginPage = new LoginPage(page);
+        registerPage = new RegisterPage(page);
         accountPage = new AccountPage(page);
         homePage = new HomePage(page);
 
-        // precondition: login
+        // precondition: a new user every run (unique email) + login
+        const email = data.emailPrefix + Date.now() + data.emailDomain;
         await loginPage.open();
-        await loginPage.login(data.user.email, data.user.password);
+        await loginPage.clickRegisterLink();
+        await registerPage.register(data.user, email);
+        await loginPage.expectLoginPageOpened();
+        await loginPage.login(email, data.user.password);
         await accountPage.expectAccountPageOpened(data.accountTitle);
     });
 

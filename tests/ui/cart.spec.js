@@ -1,5 +1,6 @@
 const { test } = require("@playwright/test");
 const { LoginPage } = require("../../pages/LoginPage");
+const { RegisterPage } = require("../../pages/RegisterPage");
 const { AccountPage } = require("../../pages/AccountPage");
 const { HomePage } = require("../../pages/HomePage");
 const { ProductPage } = require("../../pages/ProductPage");
@@ -9,6 +10,7 @@ const data = require("../../data/cart.json");
 
 test.describe("TC-04 Add to cart", () => {
     let loginPage;
+    let registerPage;
     let accountPage;
     let homePage;
     let productPage;
@@ -16,14 +18,19 @@ test.describe("TC-04 Add to cart", () => {
 
     test.beforeEach(async ({ page }) => {
         loginPage = new LoginPage(page);
+        registerPage = new RegisterPage(page);
         accountPage = new AccountPage(page);
         homePage = new HomePage(page);
         productPage = new ProductPage(page);
         navBar = new NavBar(page);
 
-        // precondition: login
+        // precondition: a new user every run (unique email) + login
+        const email = data.emailPrefix + Date.now() + data.emailDomain;
         await loginPage.open();
-        await loginPage.login(data.user.email, data.user.password);
+        await loginPage.clickRegisterLink();
+        await registerPage.register(data.user, email);
+        await loginPage.expectLoginPageOpened();
+        await loginPage.login(email, data.user.password);
         await accountPage.expectAccountPageOpened(data.accountTitle);
     });
 
@@ -55,6 +62,7 @@ test.describe("TC-04 Add to cart", () => {
 
 test.describe("TC-05 Cart", () => {
     let loginPage;
+    let registerPage;
     let accountPage;
     let homePage;
     let productPage;
@@ -63,15 +71,20 @@ test.describe("TC-05 Cart", () => {
 
     test.beforeEach(async ({ page }) => {
         loginPage = new LoginPage(page);
+        registerPage = new RegisterPage(page);
         accountPage = new AccountPage(page);
         homePage = new HomePage(page);
         productPage = new ProductPage(page);
         navBar = new NavBar(page);
         checkoutPage = new CheckoutPage(page);
 
-        // precondition 1: login
+        // precondition: a new user every run (unique email) + login
+        const email = data.emailPrefix + Date.now() + data.emailDomain;
         await loginPage.open();
-        await loginPage.login(data.user.email, data.user.password);
+        await loginPage.clickRegisterLink();
+        await registerPage.register(data.user, email);
+        await loginPage.expectLoginPageOpened();
+        await loginPage.login(email, data.user.password);
         await accountPage.expectAccountPageOpened(data.accountTitle);
 
         // precondition 2: add Thor Hammer to cart
