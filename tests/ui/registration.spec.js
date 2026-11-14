@@ -32,16 +32,15 @@ test.describe("Registration", () => {
         // register
         await registerPage.register(data.user, email);
 
-        // ✔ landed on login
+        // landed on login
         await loginPage.expectLoginPageOpened();
 
         // login with the new account
         await loginPage.login(email, data.user.password);
 
-        // ✔ My account + the name
+        // My account + the name
         await accountPage.expectAccountPageOpened(data.accountTitle);
         await navBar.expectUserName(data.user.fullName);
     });
-
 
 });

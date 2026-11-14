@@ -95,7 +95,7 @@ test.describe("TC-05 Cart", () => {
         // line price = unit price × quantity
         await checkoutPage.expectLinePrice(data.quantity);
 
-        // ✔ total = line price
+        // total = line price
         await checkoutPage.expectTotalEqualsLinePrice();
     });
 });
