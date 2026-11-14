@@ -4,20 +4,14 @@ class CheckoutPage {
     constructor(page) {
         this.page = page;
         this.url = "/checkout";
-
-        // ----- Step 1: Cart -----
         this.cartItemNames = page.getByTestId("product-title");
         this.quantityInput = page.getByTestId("product-quantity");
         this.itemPrice = page.getByTestId("product-price");
         this.linePrice = page.getByTestId("line-price");
         this.cartTotal = page.getByTestId("cart-total");
         this.proceedToSignInButton = page.getByTestId("proceed-1");
-
-        // ----- Step 2: Sign in -----
         this.signInStep = page.locator("app-login");
         this.proceedToAddressButton = page.getByTestId("proceed-2");
-
-        // ----- Step 3: Billing Address -----
         this.streetInput = page.getByTestId("street");
         this.cityInput = page.getByTestId("city");
         this.stateInput = page.getByTestId("state");
@@ -25,13 +19,9 @@ class CheckoutPage {
         this.postalCodeInput = page.getByTestId("postal_code");
         this.houseNumberInput = page.getByTestId("house_number");
         this.proceedToPaymentButton = page.getByTestId("proceed-3");
-
-        // ----- Step 4: Payment -----
         this.paymentMethodSelect = page.getByTestId("payment-method");
         this.finishButton = page.getByTestId("finish");
         this.paymentSuccessMessage = page.getByTestId("payment-success-message");
-
-        // ----- Confirmation -----
         this.orderConfirmation = page.locator("#order-confirmation");
         this.invoiceNumber = page.locator("#order-confirmation span");
     }
